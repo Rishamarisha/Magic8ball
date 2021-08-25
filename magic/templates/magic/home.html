@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Magic 8 Ball</title>
+    <link rel="stylesheet" href="{% static 'magic/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1><img class= "crystal-ball" src="{% static 'magic/crystal-ball.png' %}">Magic 8 Ball</h1>
+    <!-- <h2>Enter your question to know your fate.</h2> -->
+    <form action="/" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">Press me</button>    
+    </form>
+    <div class="answer-field">
+        <img class="magic-ball" src="{% static 'magic/magic-ball.png' %}">
+        <p class="answer">{{ answer }}</p>
+    </div>
+</body>
+</html>
